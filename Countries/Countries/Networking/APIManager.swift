@@ -57,7 +57,23 @@ class APIManager {
                 for countryInfo in rootCountriesArray {
                     let name  = countryInfo["name"] as? String
                     let flag = countryInfo["flag"] as? String
-                    countriesArray.append(Country(name: name ?? "<NA>", flagURL: flag ?? ""))
+                    let capital = countryInfo["capital"] as? String
+                    let region = countryInfo["region"] as? String
+                    let subregion = countryInfo["subregion"] as? String
+                    let callingCode = getFinalString(countryInfo:countryInfo, key:"callingCodes")
+                    let timezone =  getFinalString(countryInfo:countryInfo, key:"timezones")
+                    let languages =  getFinalString(countryInfo:countryInfo, key:"languages")
+                    let currencies =  getFinalString(countryInfo:countryInfo, key:"currencies")
+                    countriesArray.append(Country(name: name ?? "<NA>",
+                                                  flagURL: flag ?? "",
+                                                  capital: capital ?? "<NA>",
+                                                  region: region ?? "<NA>",
+                                                  subRegion: subregion ?? "<NA>",
+                                                  callingCode: callingCode,
+                                                  timeZone: timezone,
+                                                  languages: languages,
+                                                  currencies: currencies
+                                                  ))
                 }
             }
         }
@@ -66,6 +82,24 @@ class APIManager {
 //            return
 //        }
         
+    }
+    
+    func getFinalString(countryInfo:AnyObject, key:String) -> String {
+        var finalString = "<NA>"
+        if (countryInfo[key] is [String])
+        {
+            finalString = (countryInfo[key] as! [String]).joined(separator: ", ")
+        }
+        else if(countryInfo[key] is [[String: String]])
+        {
+            var listOfStrings:[String] = []
+            for dictionary in (countryInfo[key] as! [[String: String]])
+            {
+                listOfStrings.append(dictionary["nativeName"] ?? dictionary["code"] ?? dictionary["name"] ?? "<NA>")
+            }
+            finalString = listOfStrings.joined(separator: ", ")
+        }
+        return finalString
     }
     
     func localFilePath(for url: URL) -> URL {

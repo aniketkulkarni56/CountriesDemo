@@ -11,7 +11,14 @@ import UIKit
 struct Country {
     let name: String
     let flagURL: String
-    
+    let fieldCount: Int = 8
+    let capital: String
+    let region: String
+    let subRegion: String
+    let callingCode:String
+    let timeZone: String
+    let languages: String
+    let currencies: String
 }
 
 //alpha2Code = IO;

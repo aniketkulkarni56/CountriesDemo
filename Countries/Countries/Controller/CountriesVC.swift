@@ -29,7 +29,6 @@ class CountriesVC: UIViewController {
     
     func searchCountries(_ query: String) -> Observable<[Country]> {
         apiManager.getSearchResults(searchTerm: query) { results, errorMessage in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if let results = results {
                 self.searchResults = results
             }
@@ -40,18 +39,19 @@ class CountriesVC: UIViewController {
     }
 
     // MARK: - View controller methods
-    
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         super.viewDidLoad()
         apiManager.downloadsSession = downloadsSession
         tblView.tableFooterView = UIView()
         tblView.delegate = nil
         tblView.dataSource = nil
 
-        let searchResults = searchBar.rx.text.orEmpty
+        let results = searchBar.rx.text.orEmpty
             .throttle(0.3, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .flatMapLatest { query -> Observable<[Country]> in
+                self.tblView.reloadData()
                 if query.isEmpty {
                     return .just([])
                 }
@@ -61,7 +61,7 @@ class CountriesVC: UIViewController {
             }
             .observeOn(MainScheduler.instance)
         
-        searchResults
+        results
             .bind(to: tblView.rx.items(cellIdentifier: "CountryCell")) {
                 (index, countryInfo: Country, cell) in
                 if cell is CountryCell
@@ -71,6 +71,17 @@ class CountriesVC: UIViewController {
                     self.handleLazyImageForCell(countryCell: countryCell, countryInfo: countryInfo)
                 }
             }
+            .disposed(by: disposeBag)
+        
+        tblView.rx.itemSelected
+            .map { indexPath in
+                if (self.searchResults.count > indexPath.row)
+                {
+                    self.PushToDetail(countryInfo: self.searchResults[indexPath.row])
+                }
+            }
+            .subscribe(onNext: { pair in
+            })
             .disposed(by: disposeBag)
     }
     
@@ -94,6 +105,23 @@ class CountriesVC: UIViewController {
             }
         }
     }
+    
+    func PushToDetail(countryInfo: Country)
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailCountry: CountryDetailVC = storyboard.instantiateViewController(withIdentifier: "CountryDetailVC") as! CountryDetailVC
+        detailCountry.countryDetail = countryInfo
+        navigationController?.pushViewController(detailCountry, animated: true)
+        
+//        // Safe Push VC
+//        if let detailCountry = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CountryDetailVC") as? JunctionDetailsVC {
+//            if let navigator = navigationController {
+//                navigator.pushViewController(detailCountry, animated: true)
+//            }
+//        }
+
+    }
+    
 }
 
 extension CountriesVC: CountryCellDelegate {

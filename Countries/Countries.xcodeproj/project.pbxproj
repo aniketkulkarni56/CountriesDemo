@@ -19,6 +19,8 @@
 		11727015220ED78800F3DD78 /* CountriesVC+URLSessionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11727014220ED78800F3DD78 /* CountriesVC+URLSessionDelegates.swift */; };
 		1172701F220F04B600F3DD78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1172701E220F04B500F3DD78 /* Assets.xcassets */; };
 		11727022220F054000F3DD78 /* default_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 11727021220F054000F3DD78 /* default_placeholder.png */; };
+		117270252210C0A600F3DD78 /* CountryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117270242210C0A600F3DD78 /* CountryDetailCell.swift */; };
+		117270292210C3FF00F3DD78 /* CountryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117270282210C3FF00F3DD78 /* CountryDetailVC.swift */; };
 		2F4369B2EFBD3FDFA1831149 /* Pods_Countries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830D0FAC6702E0E722AAA3A5 /* Pods_Countries.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		11727014220ED78800F3DD78 /* CountriesVC+URLSessionDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountriesVC+URLSessionDelegates.swift"; sourceTree = "<group>"; };
 		1172701E220F04B500F3DD78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Countries/Assets.xcassets; sourceTree = "<group>"; };
 		11727021220F054000F3DD78 /* default_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_placeholder.png; sourceTree = "<group>"; };
+		117270242210C0A600F3DD78 /* CountryDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailCell.swift; sourceTree = "<group>"; };
+		117270282210C3FF00F3DD78 /* CountryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailVC.swift; sourceTree = "<group>"; };
 		241BA928E22FC547B640979D /* Pods-Countries.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.debug.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.debug.xcconfig"; sourceTree = "<group>"; };
 		830D0FAC6702E0E722AAA3A5 /* Pods_Countries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Countries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840B3A31B74FEDF9E20A7DBF /* Pods-Countries.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Countries.release.xcconfig"; path = "Target Support Files/Pods-Countries/Pods-Countries.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				1172700B220E0B1700F3DD78 /* CountryCell.swift */,
+				117270242210C0A600F3DD78 /* CountryDetailCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				11727009220E096F00F3DD78 /* CountriesVC.swift */,
 				11727012220ED74900F3DD78 /* CountriesVC+SearchBarDelegate.swift */,
 				11727014220ED78800F3DD78 /* CountriesVC+URLSessionDelegates.swift */,
+				117270282210C3FF00F3DD78 /* CountryDetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117270252210C0A600F3DD78 /* CountryDetailCell.swift in Sources */,
 				1172700F220E0F6500F3DD78 /* APIManager.swift in Sources */,
 				11726FF8220E016300F3DD78 /* Countries.xcdatamodeld in Sources */,
 				1172700A220E096F00F3DD78 /* CountriesVC.swift in Sources */,
@@ -287,6 +294,7 @@
 				11727013220ED74900F3DD78 /* CountriesVC+SearchBarDelegate.swift in Sources */,
 				11727015220ED78800F3DD78 /* CountriesVC+URLSessionDelegates.swift in Sources */,
 				11727008220E08A400F3DD78 /* Country.swift in Sources */,
+				117270292210C3FF00F3DD78 /* CountryDetailVC.swift in Sources */,
 				11726FF0220E016200F3DD78 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
