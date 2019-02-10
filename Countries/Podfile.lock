@@ -1,0 +1,48 @@
+PODS:
+  - CocoaLumberjack (3.5.1):
+    - CocoaLumberjack/Core (= 3.5.1)
+  - CocoaLumberjack/Core (3.5.1)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - SVGKit (2.1.0):
+    - CocoaLumberjack (~> 3.0)
+  - SwiftSVG (2.2.0)
+
+DEPENDENCIES:
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `3.x`)
+  - SwiftSVG (~> 2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaLumberjack
+    - RxAtomic
+    - RxCocoa
+    - RxSwift
+    - SwiftSVG
+
+EXTERNAL SOURCES:
+  SVGKit:
+    :branch: 3.x
+    :git: https://github.com/SVGKit/SVGKit.git
+
+CHECKOUT OPTIONS:
+  SVGKit:
+    :commit: cc0d7edf67af2bd10a6a895f1b4982b22a8b172a
+    :git: https://github.com/SVGKit/SVGKit.git
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 2101f8a5508197a305e737d16c5c2e9e2157628c
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
+  SwiftSVG: 19bc4e434dcf236ece45ddf75f5ee1d3ef8061e6
+
+PODFILE CHECKSUM: 5b10674a73901b7490f5582fdfc374746d87fb02
+
+COCOAPODS: 1.6.0

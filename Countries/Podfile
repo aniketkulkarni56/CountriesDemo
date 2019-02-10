@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '10.0'
+
+target 'Countries' do
+  use_frameworks!
+
+pod 'SwiftSVG', '~> 2.0'
+pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x'
+
+pod 'RxSwift',    '~> 4.0'
+pod 'RxCocoa',    '~> 4.0'
+
+
+end
